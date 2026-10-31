@@ -36,7 +36,7 @@ export function CategoryNav({ value, onChange }: Props) {
               onClick={() => onChange(it.key === "ALL" ? undefined : (it.key as Category))}
               className={`label relative min-h-12 shrink-0 whitespace-nowrap px-4 tracking-[0.12em] transition-colors md:flex-1 md:px-3 ${
                 i > 0 ? "border-l border-white/15" : "md:border-l md:border-l-white/15"
-              } ${on ? "text-[#111111]" : "text-muted hover:text-bone"}`}
+              } ${on ? "text-[#0c0f16]" : "text-muted hover:text-bone"}`}
             >
               {on && (
                 <motion.span

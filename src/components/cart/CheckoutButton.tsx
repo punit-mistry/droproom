@@ -40,7 +40,7 @@ export function CheckoutButton() {
         order_id: order.orderId,
         name: "DROPROOM®",
         description: "Drop 001 — TEST MODE",
-        theme: { color: "#C8FF00" },
+        theme: { color: "#FF5B1F" },
         modal: { ondismiss: () => setState({ s: "idle" }) },
         handler: async (r: RzpResponse) => {
           const v = await fetch("/api/razorpay/verify", {

@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #111111;
-  --bone: #f2f0eb;
-  --volt: #c8ff00;
+  --ink: #0c0f16;
+  --bone: #ece8df;
+  --volt: #ff5b1f;
   --muted: #888888;
   --line: rgba(255, 255, 255, 0.15);
-  --line-dark: rgba(17, 17, 17, 0.15);
+  --line-dark: rgba(12, 15, 22, 0.15);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -44,19 +44,19 @@ body { background: var(--ink); color: var(--bone); font-family: var(--font-sans)
    Dark is the brand default. Light is a deliberate studio palette (warm off-white,
    graphite type, hairline greys) — token swap, not a filter inversion.
    --ink = page background, --bone = primary text, --surface = product plinth. */
-:root { --surface: #161616; --volt-text: var(--volt); }
+:root { --surface: #131822; --volt-text: var(--volt); }
 :root[data-theme="light"] {
-  --ink: #f6f5f1;
-  --bone: #121212;
+  --ink: #f5f3ee;
+  --bone: #10131a;
   --muted: #6a6a66;
-  --line: rgba(17, 17, 17, 0.14);
-  --surface: #ebe9e3;
-  --volt-text: #4d6600; /* lime text needs a darker shade to pass contrast on off-white */
-  --color-white: #121212; /* flips every border-white/NN hairline to a dark hairline */
+  --line: rgba(12, 15, 22, 0.14);
+  --surface: #e8e5de;
+  --volt-text: #b43a00; /* ember text needs a darker shade to pass contrast on off-white */
+  --color-white: #10131a; /* flips every border-white/NN hairline to a dark hairline */
   color-scheme: light;
 }
-/* Lime surfaces keep dark type & light hairlines in both themes. */
-:root[data-theme="light"] .bg-volt { --ink: #111111; --bone: #f2f0eb; --color-white: #ffffff; }
+/* Accent surfaces keep dark type & light hairlines in both themes. */
+:root[data-theme="light"] .bg-volt { --ink: #0c0f16; --bone: #ece8df; --color-white: #ffffff; }
 :root[data-theme="light"] .text-volt,
 :root[data-theme="light"] .hover\:text-volt:hover { color: var(--volt-text); }
 :root[data-theme="light"] .grain::after { opacity: 0.05; mix-blend-mode: multiply; }

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 const THEME_SCRIPT = `try{var t=localStorage.getItem("droproom.theme");document.documentElement.dataset.theme=t==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}`;
 
-export const viewport: Viewport = { themeColor: "#111111", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#0c0f16", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

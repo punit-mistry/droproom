@@ -128,7 +128,7 @@ export function Hero() {
       {/* WORDMARK */}
       <motion.h1
         style={{ y: yWord }}
-        className="display relative z-10 mt-3 select-none whitespace-nowrap px-[2vw] pb-[1.5vw] text-[21.5vw] leading-[0.82] text-[#f2f0eb] mix-blend-difference md:mt-0 md:text-[19.5vw]"
+        className="display relative z-10 mt-3 select-none whitespace-nowrap px-[2vw] pb-[1.5vw] text-[21.5vw] leading-[0.82] text-[#ece8df] mix-blend-difference md:mt-0 md:text-[19.5vw]"
       >
         <span className="block overflow-hidden pt-[0.04em]">
           <span className="hr-up block" style={{ "--d": "0.15s" } as React.CSSProperties}>
