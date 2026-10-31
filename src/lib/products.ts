@@ -68,7 +68,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "dr-004", slug: "industrial-hoodie", name: "INDUSTRIAL HOODIE", price: 4999,
     category: "HOODIES", garment: "hoodie", image: PNG("hoodie-new-1"), backdrop: "dark",
-    gallery: ["hoodie-new-1", "hoodie-new-2", "hoodie-new-3", "hoodie-new-4", "hoodie-new-5"].map(PNG),
+    gallery: ["hoodie-new-1", "hoodie-new-2", "hoodie-new-3", "hoodie-new-4", "hoodie-new-5", "hoodie-new-6", "hoodie-new-7"].map(PNG),
     sizes: STD, tags: ["DROP 001", "HEAVYWEIGHT"], isNew: true, colorway: "SLAG BLACK",
     blurb: "480 GSM brushed fleece.",
     description: "Built from 480 GSM brushed-back loopback fleece with a double-layer hood and a small star at the chest, distressed star graphics down the sleeves and a woven hem label. Heavy enough to hold a silhouette, soft enough to live in.",
@@ -215,6 +215,8 @@ const IMAGE_DIMS: Record<string, [number, number]> = {
   "/images/products/hoodie-new-3.png": [1254, 1254],
   "/images/products/hoodie-new-4.png": [1254, 1254],
   "/images/products/hoodie-new-5.png": [1254, 1254],
+  "/images/products/hoodie-new-6.png": [1254, 1254],
+  "/images/products/hoodie-new-7.png": [1254, 1254],
   "/images/products/headphones-new-4.png": [1269, 1240],
   "/images/products/headphones-new-6.png": [1536, 1024],
   "/images/products/headphones-new-7.png": [1330, 1182],
