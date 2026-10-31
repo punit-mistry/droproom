@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #111111;
+  --bone: #f2f0eb;
+  --volt: #c8ff00;
+  --muted: #888888;
+  --line: rgba(255, 255, 255, 0.15);
+  --line-dark: rgba(17, 17, 17, 0.15);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--ink);
+  --color-bone: var(--bone);
+  --color-volt: var(--volt);
+  --color-muted: var(--muted);
+  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html { background: var(--ink); color-scheme: dark; scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--bone); font-family: var(--font-sans); overflow-x: hidden; }
+::selection { background: var(--volt); color: var(--ink); }
+
+.display { font-family: var(--font-display); text-transform: uppercase; line-height: 0.88; letter-spacing: -0.01em; }
+.label { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.hairline { border-color: var(--line); }
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .08; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:focus-visible { outline: 2px solid var(--volt); outline-offset: 3px; }
+
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee-track { animation: marquee 40s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  html { scroll-behavior: auto; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── Theme system ─────────────────────────────────────────────
+   Dark is the brand default. Light is a deliberate studio palette (warm off-white,
+   graphite type, hairline greys) — token swap, not a filter inversion.
+   --ink = page background, --bone = primary text, --surface = product plinth. */
+:root { --surface: #161616; --volt-text: var(--volt); }
+:root[data-theme="light"] {
+  --ink: #f6f5f1;
+  --bone: #121212;
+  --muted: #6a6a66;
+  --line: rgba(17, 17, 17, 0.14);
+  --surface: #ebe9e3;
+  --volt-text: #4d6600; /* lime text needs a darker shade to pass contrast on off-white */
+  --color-white: #121212; /* flips every border-white/NN hairline to a dark hairline */
+  color-scheme: light;
 }
+/* Lime surfaces keep dark type & light hairlines in both themes. */
+:root[data-theme="light"] .bg-volt { --ink: #111111; --bone: #f2f0eb; --color-white: #ffffff; }
+:root[data-theme="light"] .text-volt,
+:root[data-theme="light"] .hover\:text-volt:hover { color: var(--volt-text); }
+:root[data-theme="light"] .grain::after { opacity: 0.05; mix-blend-mode: multiply; }
+
+/* Photo balance: supplied shots have either a black or a white backdrop.
+   Dark theme: tone the white-backdrop shots down so they don't glare against near-black.
+   Light theme: soften the black-backdrop shots slightly so the grid reads as one set. */
+.photo-frame img { transition: filter 0.4s var(--ease); }
+:root:not([data-theme="light"]) .photo-frame[data-backdrop="light"] img { filter: brightness(0.86) contrast(1.04); }
+:root[data-theme="light"] .photo-frame[data-backdrop="dark"] img { filter: brightness(1.06); }
+:root[data-theme="light"] .photo-frame { outline: 1px solid var(--line); outline-offset: -1px; }
+html, body { transition: background-color 0.3s var(--ease), color 0.3s var(--ease); }
+@media (prefers-reduced-motion: reduce) { html, body { transition: none; } }
